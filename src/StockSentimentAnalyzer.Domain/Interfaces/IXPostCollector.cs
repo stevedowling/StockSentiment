@@ -9,27 +9,25 @@ namespace StockSentimentAnalyzer.Domain.Interfaces
     public interface IXPostCollector
     {
         /// <summary>
-        /// Collects posts from configured X.com accounts that mention stock market related content
+        /// Collects the latest posts from monitored accounts and cashtags
         /// </summary>
-        /// <param name="startTime">Optional start time to collect posts from</param>
-        /// <param name="endTime">Optional end time to collect posts until</param>
+        /// <param name="maxPosts">Maximum number of posts to collect</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Collection of X posts</returns>
-        Task<IEnumerable<XPost>> CollectMarketPostsAsync(
-            DateTime? startTime = null,
-            DateTime? endTime = null,
+        /// <returns>Collection of posts</returns>
+        Task<IEnumerable<XPost>> CollectLatestPostsAsync(
+            int maxPosts = 100,
             CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Collects posts from specific X.com accounts
+        /// Collects posts from a specific author
         /// </summary>
-        /// <param name="usernames">List of usernames to collect posts from</param>
-        /// <param name="startTime">Optional start time to collect posts from</param>
-        /// <param name="endTime">Optional end time to collect posts until</param>
+        /// <param name="username">Author's username</param>
+        /// <param name="startTime">Optional start time filter</param>
+        /// <param name="endTime">Optional end time filter</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Collection of X posts</returns>
-        Task<IEnumerable<XPost>> CollectUserPostsAsync(
-            IEnumerable<string> usernames,
+        /// <returns>Collection of posts by the author</returns>
+        Task<IEnumerable<XPost>> CollectPostsByAuthorAsync(
+            string username,
             DateTime? startTime = null,
             DateTime? endTime = null,
             CancellationToken cancellationToken = default);
@@ -37,12 +35,12 @@ namespace StockSentimentAnalyzer.Domain.Interfaces
         /// <summary>
         /// Collects posts containing specific cashtags
         /// </summary>
-        /// <param name="cashtags">List of cashtags to search for</param>
-        /// <param name="startTime">Optional start time to collect posts from</param>
-        /// <param name="endTime">Optional end time to collect posts until</param>
+        /// <param name="cashtags">The cashtags to search for</param>
+        /// <param name="startTime">Optional start time filter</param>
+        /// <param name="endTime">Optional end time filter</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Collection of X posts</returns>
-        Task<IEnumerable<XPost>> CollectCashtagPostsAsync(
+        /// <returns>Collection of posts containing the cashtags</returns>
+        Task<IEnumerable<XPost>> CollectPostsByCashtagsAsync(
             IEnumerable<string> cashtags,
             DateTime? startTime = null,
             DateTime? endTime = null,

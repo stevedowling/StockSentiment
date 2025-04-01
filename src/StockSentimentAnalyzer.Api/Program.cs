@@ -10,6 +10,7 @@ using System.Text.Json.Serialization;
 using StockSentimentAnalyzer.Api.Hubs;
 using Azure.Security.KeyVault.Secrets;
 using Microsoft.Extensions.Azure;
+using StockSentimentAnalyzer.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +47,9 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
         options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     });
+
+// Add infrastructure services (includes X.com integration)
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

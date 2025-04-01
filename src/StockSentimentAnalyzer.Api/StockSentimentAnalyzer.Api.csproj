@@ -26,6 +26,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Timer" Version="4.3.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.17.0" OutputItemType="Analyzer" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\StockSentimentAnalyzer.Domain\StockSentimentAnalyzer.Domain.csproj" />
     <ProjectReference Include="..\StockSentimentAnalyzer.Application\StockSentimentAnalyzer.Application.csproj" />
     <ProjectReference Include="..\StockSentimentAnalyzer.Infrastructure\StockSentimentAnalyzer.Infrastructure.csproj" />
