@@ -13,77 +13,102 @@ The solution follows Clean Architecture principles with the following components
 - **API**: Web API for frontend communication
 - **Web**: React frontend (to be implemented)
 
+## Features
+
+- Real-time X.com post collection using Tweetinvi
+- Sentiment analysis using OpenAI GPT-4
+- Azure Table Storage for data persistence
+- SignalR for real-time updates
+- React dashboard for visualization
+- Secure configuration using Azure Key Vault
+- Comprehensive monitoring with Application Insights
+
 ## Prerequisites
 
-- .NET 7.0 SDK or later
-- Azure Functions Core Tools
+- .NET 9.0 SDK
+- Azure Functions Core Tools v4
 - Azure CLI
 - Node.js 18.x or later (for frontend)
 - Azure Subscription
-- X.com Developer Account
-- OpenAI API Access
+- X.com API Access (Bearer Token)
+- OpenAI API Key
 
 ## Getting Started
 
-1. Clone the repository
-2. Install Azure Functions Core Tools:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/stock-sentiment-analyzer.git
+   cd stock-sentiment-analyzer
    ```
-   npm i -g azure-functions-core-tools@4 --unsafe-perm true
-   ```
-3. Create required Azure resources:
-   - Azure Function App
-   - Azure Key Vault
-   - Azure Storage Account
-   - Application Insights
-   - Azure Virtual Network
-   - Azure CDN
 
-4. Configure local settings:
+2. Install dependencies:
+   ```bash
+   dotnet restore
+   ```
+
+3. Configure Azure resources:
+   - Create an Azure Key Vault
+   - Set up Azure Table Storage
+   - Configure Application Insights
+   - Create Azure Functions App
+
+4. Configure secrets in Azure Key Vault:
+   - X.com Bearer Token
+   - OpenAI API Key
+   - Storage Connection String
+
+5. Update local.settings.json:
    ```json
    {
      "IsEncrypted": false,
      "Values": {
        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-       "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+       "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+       "KeyVault:BaseUrl": "https://your-keyvault.vault.azure.net/",
+       "AZURE_TENANT_ID": "your-tenant-id",
+       "AZURE_CLIENT_ID": "your-client-id"
      }
    }
    ```
 
-5. Build the solution:
-   ```
-   dotnet build
-   ```
-
-6. Run the Function App locally:
-   ```
-   cd src/StockSentimentAnalyzer.Functions
+6. Run the solution:
+   ```bash
+   cd src/StockSentimentAnalyzer.Api
    func start
    ```
 
+## Project Structure
+
+```
+├── src/
+│   ├── StockSentimentAnalyzer.Domain/        # Core domain models and interfaces
+│   ├── StockSentimentAnalyzer.Application/   # Application services and use cases
+│   ├── StockSentimentAnalyzer.Infrastructure/# External service implementations
+│   └── StockSentimentAnalyzer.Api/           # Azure Functions and API endpoints
+├── tests/
+│   ├── StockSentimentAnalyzer.UnitTests/     # Unit tests
+│   └── StockSentimentAnalyzer.IntegrationTests/# Integration tests
+├── docs/                                     # Documentation
+└── web/                                      # React frontend (coming soon)
+```
+
 ## Security
 
-- All secrets are stored in Azure Key Vault
-- Managed Identities are used for Azure resource access
-- Virtual Network integration with Private Endpoints
-- TLS 1.2+ for all communications
-- Input validation on all endpoints
+- Uses managed identities for Azure resources
+- All secrets stored in Azure Key Vault
+- Data encrypted at rest and in transit
+- Network isolation with Private Endpoints
+- DDoS protection enabled
 - Comprehensive audit logging
-
-## Monitoring
-
-- Application Insights integration
-- Custom metrics for business KPIs
-- Performance monitoring
-- Cost tracking
-- Model drift detection
 
 ## Contributing
 
-1. Create a feature branch
-2. Make your changes
-3. Ensure tests pass
-4. Create a pull request
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
 ## License
 
-[MIT License](LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
