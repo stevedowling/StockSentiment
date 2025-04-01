@@ -13,16 +13,26 @@ An Azure Function-based system that monitors selected X.com (formerly Twitter) a
 - Azure DDoS Protection
 - Application Insights
 - Azure CDN
-- C# (.NET 7+)
+- C# (.NET 9.0)
 - React (Web UI)
 - Pulumi (Infrastructure as Code)
+- SignalR Service
+- Azure AD B2C
 
 ## Architecture
 Following Clean Architecture principles with distinct layers:
 1. Presentation Layer (API endpoints, React UI)
+   - ASP.NET Core Web API with SignalR integration
+   - React frontend with real-time updates
 2. Application Layer (use cases, orchestration)
+   - CQRS pattern for command/query separation
+   - Durable Functions for complex workflows
 3. Domain Layer (business logic, entities)
+   - Rich domain models with validation
+   - Domain events for state changes
 4. Infrastructure Layer (external services, persistence)
+   - Repository pattern for data access
+   - Azure managed identities for secure access
 
 ## Core Components
 
@@ -47,14 +57,14 @@ Following Clean Architecture principles with distinct layers:
 ### 3. Alert System
 - Event-triggered Azure Function
 - Monitors sentiment changes above threshold
-- Sends notifications via email/webhook
+- Sends notifications via SignalR
 - Generates summary reports
 - Implements audit trails for all alerts
 - Feature flags for gradual rollout
 
 ### 4. React Web UI
-- Real-time sentiment dashboard
-- Push notifications using SignalR over TLS 1.2+
+- Real-time sentiment dashboard using SignalR
+- Push notifications with Azure SignalR Service
 - Interactive charts and visualizations
 - Azure AD authentication with MSAL
 - Mobile-responsive design
@@ -62,16 +72,19 @@ Following Clean Architecture principles with distinct layers:
 
 ## Implementation Phases
 
-### Phase 1: Infrastructure Setup
-- [ ] Create Azure Function App with managed identity
-- [ ] Set up Azure Key Vault and access policies
+### Phase 1: Infrastructure Setup 
+- [x] Create solution structure with Clean Architecture
+- [x] Set up Azure Key Vault integration
+- [x] Configure authentication with Azure AD
+- [x] Set up SignalR for real-time updates
+- [x] Configure health checks
+- [x] Set up Swagger documentation
 - [ ] Configure Virtual Network with Private Endpoints
 - [ ] Set up DDoS Protection
 - [ ] Configure Table Storage with encryption
 - [ ] Set up Application Insights
 - [ ] Implement Pulumi IaC
 - [ ] Configure CI/CD pipeline with automated testing
-- [ ] Set up development environment
 
 ### Phase 2: X.com Integration
 - [ ] Implement X.com API authentication with managed identity
@@ -103,8 +116,8 @@ Following Clean Architecture principles with distinct layers:
 - [ ] Document alert configurations
 
 ### Phase 5: Web UI Development
-- [ ] Set up React project structure following clean architecture
-- [ ] Implement Azure AD authentication
+- [x] Set up basic React project structure
+- [x] Configure Azure AD authentication
 - [ ] Create dashboard components with proper error boundaries
 - [ ] Add real-time updates via SignalR with TLS 1.2
 - [ ] Design and implement charts with accessibility
@@ -126,8 +139,8 @@ Following Clean Architecture principles with distinct layers:
 - [ ] Final security audit
 
 ## Security Considerations
-- API keys stored in Azure Key Vault
-- Implement proper authentication with managed identities
+- API keys stored in Azure Key Vault 
+- Implement proper authentication with managed identities 
 - Rate limiting for APIs with circuit breakers
 - Data encryption at rest and in transit
 - Access control with least privilege principle
@@ -135,7 +148,7 @@ Following Clean Architecture principles with distinct layers:
 - DDoS Protection enabled
 - Regular security audits and compliance checks
 - Input validation on all endpoints
-- TLS 1.2+ for all communications
+- TLS 1.2+ for all communications 
 - Comprehensive audit logging
 - Regular dependency updates and security patches
 
@@ -176,16 +189,21 @@ Following Clean Architecture principles with distinct layers:
 ## Dependencies
 - Azure Functions Core Tools
 - Backend packages (C#):
-  - Microsoft.NET.Sdk.Functions
-  - Microsoft.Azure.Functions.Extensions
-  - Microsoft.Azure.WebJobs.Extensions.Storage
-  - Azure.Security.KeyVault.Secrets
+  - Microsoft.NET.Sdk.Functions 
+  - Microsoft.Azure.Functions.Extensions 
+  - Microsoft.Extensions.Configuration.AzureKeyVault 
+  - Azure.Security.KeyVault.Secrets 
+  - Azure.Extensions.AspNetCore.Configuration.Secrets 
+  - Microsoft.AspNetCore.SignalR 
+  - Microsoft.Identity.Web 
+  - Microsoft.AspNetCore.Authentication.JwtBearer 
+  - Microsoft.OpenApi 
+  - Swashbuckle.AspNetCore 
+  - System.Text.Json 
+  - Azure.Identity 
   - Microsoft.Azure.Cosmos.Table
   - Tweetinvi (X.com API client)
   - Azure.AI.OpenAI
-  - Microsoft.AspNetCore.SignalR.Client
-  - Microsoft.Azure.WebJobs.Extensions.SignalRService
-  - Microsoft.Identity.Web
   - FluentValidation
   - Polly (resilience and transient fault handling)
   - Serilog.AspNetCore
