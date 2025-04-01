@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{285B4B26-C623-45DA-9CAD-6CAA0FD48B31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockSentimentAnalyzer.Domain", "src\StockSentimentAnalyzer.Domain\StockSentimentAnalyzer.Domain.csproj", "{30DAF212-CAAD-4976-975F-832D0BED8691}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockSentimentAnalyzer.Application", "src\StockSentimentAnalyzer.Application\StockSentimentAnalyzer.Application.csproj", "{ED77D34E-BA5C-485D-B50E-9136BD43FCD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockSentimentAnalyzer.Infrastructure", "src\StockSentimentAnalyzer.Infrastructure\StockSentimentAnalyzer.Infrastructure.csproj", "{0507DD65-285B-4A9F-A1BF-541EBCE36AB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockSentimentAnalyzer.Api", "src\StockSentimentAnalyzer.Api\StockSentimentAnalyzer.Api.csproj", "{95D97725-4170-4B5E-A1C2-2B7A7B0415E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30DAF212-CAAD-4976-975F-832D0BED8691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30DAF212-CAAD-4976-975F-832D0BED8691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30DAF212-CAAD-4976-975F-832D0BED8691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30DAF212-CAAD-4976-975F-832D0BED8691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED77D34E-BA5C-485D-B50E-9136BD43FCD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED77D34E-BA5C-485D-B50E-9136BD43FCD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED77D34E-BA5C-485D-B50E-9136BD43FCD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED77D34E-BA5C-485D-B50E-9136BD43FCD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0507DD65-285B-4A9F-A1BF-541EBCE36AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0507DD65-285B-4A9F-A1BF-541EBCE36AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0507DD65-285B-4A9F-A1BF-541EBCE36AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0507DD65-285B-4A9F-A1BF-541EBCE36AB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95D97725-4170-4B5E-A1C2-2B7A7B0415E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D97725-4170-4B5E-A1C2-2B7A7B0415E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D97725-4170-4B5E-A1C2-2B7A7B0415E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D97725-4170-4B5E-A1C2-2B7A7B0415E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30DAF212-CAAD-4976-975F-832D0BED8691} = {285B4B26-C623-45DA-9CAD-6CAA0FD48B31}
+		{ED77D34E-BA5C-485D-B50E-9136BD43FCD0} = {285B4B26-C623-45DA-9CAD-6CAA0FD48B31}
+		{0507DD65-285B-4A9F-A1BF-541EBCE36AB6} = {285B4B26-C623-45DA-9CAD-6CAA0FD48B31}
+		{95D97725-4170-4B5E-A1C2-2B7A7B0415E5} = {285B4B26-C623-45DA-9CAD-6CAA0FD48B31}
+	EndGlobalSection
+EndGlobal
