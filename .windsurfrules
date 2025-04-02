@@ -1,0 +1,67 @@
+Use managed identities for Azure resources access instead of connection strings or service principals when possible.
+Store all secrets in Azure Key Vault, never in code or configuration files.
+Encrypt data at rest and in transit.
+Use Azure Storage encryption for blob, file, queue, and table data.
+Implement TLS 1.2+ for all communications.
+Apply the principle of least privilege for all data access.
+Implement proper input validation on all function parameters.
+Use parameterized queries to prevent SQL injection.
+Use Virtual Network integration to isolate functions.
+Configure IP restrictions for function app endpoints.
+Use Private Endpoints for secure connectivity to Azure services.
+Enable Azure DDoS Protection for network layer protection.
+Enable diagnostic logging for all functions.
+Use Application Insights for monitoring and alerting.
+Implement audit trails for all security-relevant events.
+Set up alerts for suspicious activity patterns.
+Follow Clean Architecture principles with distinct layers.
+Use dependency injection for all services and repositories.
+Keep functions focused on single responsibilities.
+Separate configuration from code.
+Document all public APIs using XML comments.
+If files grow beyond 300 lines, refactor them.
+Maintain up-to-date README files.
+Document infrastructure setup and configuration.
+Use clear naming conventions for functions and resources.
+Write unit tests for business logic.
+Implement integration tests for external dependencies.
+Use mock objects for external dependencies in unit tests.
+Maintain 80%+ code coverage.
+Automate testing in CI/CD pipeline.
+Use Infrastructure as Code with Pulumi.
+Use feature flags for gradual feature rollout.
+Design stateless functions to enable horizontal scaling.
+Use asynchronous programming patterns with async/await.
+Implement proper exception handling and retry logic.
+Optimize cold start times by keeping functions lightweight.
+Use consumption plan for cost-effective scaling of sporadic workloads.
+Use premium plan for predictable workloads requiring faster startup.
+Configure auto-scaling rules based on metrics.
+Implement caching strategies for frequently accessed data.
+Use Azure Content Delivery Network for static content.
+Optimize database queries and implement proper indexing.
+Track performance metrics in Application Insights.
+Set up dashboards for key performance indicators.
+Implement proper logging levels to avoid performance impact.
+Configure autoscaling based on performance metrics.
+Version models properly to track changes and enable rollbacks.
+Cache model predictions when appropriate for performance.
+Use Azure Functions for preprocessing and feature extraction.
+Implement batching for high-volume inference requests.
+Utilize Azure Durable Functions for orchestrating complex AI workflows.
+Consider using Azure ML pipelines for data preparation and model training.
+Track model drift and performance metrics.
+Implement logging for prediction inputs and outputs for debugging.
+Set up alerts for model performance degradation.
+Use Application Insights custom metrics for AI-specific metrics.
+Implement proper cleanup of resources.
+Put classes in separate files.
+Put enums in separate files in an Enums folder.
+Put interfaces in separate files in an Interfaces folder.
+Put models in separate files in a Models folder.
+Put repositories in separate files in a Repositories folder.
+Put services in separate files in a Services folder.
+Put helpers in separate files in a Helpers folder.  
+Put extension methods in separate files in an Extensions folder.
+Add the Enum suffix to enum names.
+Remove empty Class1.cs files.
